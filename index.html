@@ -630,7 +630,11 @@ margin: 10px 0;
 <h2>Tegyünk egy próbát?</h2>
 <p>Válassza ki az Önt érdeklő témát, és kérjen egy kötetlen konzultációs időpontot.</p>
 
-<form action="#" method="POST">
+<form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+<input type="hidden" name="access_key" value="3ff886d4-8d54-4756-86e4-f9f395a678a9">
+<input type="hidden" name="subject" value="Új konzultáció igény – Pénzügyek Emberi Nyelven">
+<input type="hidden" name="from_name" value="Pénzügyek Emberi Nyelven weboldal">
+<input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 <div class="form-group">
 <label for="topic">Milyen témában kér időpontot?</label>
 <div class="select-wrapper">
@@ -673,7 +677,8 @@ margin: 10px 0;
 <label for="aszf">Elolvastam és elfogadom az <a href="https://www.ovb.hu/szerviz/adatkezelesi-szabalyzat.html" target="_blank">Adatkezelési Tájékoztatót</a>, hozzájárulok az adataim kezeléséhez.</label>
 </div>
 
-<button type="submit">Konzultációt kérek</button>
+<button type="submit" id="contact-submit">Konzultációt kérek</button>
+<p id="contact-status" style="margin-top: 18px; font-weight: 600; display: none;"></p>
 </form>
 </div>
 </section>
@@ -722,6 +727,46 @@ if (!isActive) {
 card.classList.add('active');
 }
 }
+
+// KAPCSOLATFELVÉTELI ŰRLAP KÜLDÉSE (Web3Forms, oldalelhagyás nélkül)
+const contactForm = document.getElementById('contact-form');
+const contactStatus = document.getElementById('contact-status');
+const contactSubmit = document.getElementById('contact-submit');
+
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+
+contactSubmit.disabled = true;
+contactSubmit.textContent = 'Küldés...';
+contactStatus.style.display = 'none';
+
+fetch(contactForm.action, {
+method: 'POST',
+headers: { 'Accept': 'application/json' },
+body: new FormData(contactForm)
+})
+.then(response => response.json())
+.then(data => {
+if (data.success) {
+contactStatus.textContent = 'Köszönjük! Az üzenetét megkaptuk, hamarosan felvesszük Önnel a kapcsolatot.';
+contactStatus.style.color = '#8FCB9B';
+contactForm.reset();
+} else {
+contactStatus.textContent = 'Hiba történt a küldés során. Kérjük, próbálja meg később, vagy írjon a gaalbogi03@gmail.com címre.';
+contactStatus.style.color = '#E38B8B';
+}
+contactStatus.style.display = 'block';
+})
+.catch(() => {
+contactStatus.textContent = 'Hiba történt a küldés során. Kérjük, próbálja meg később, vagy írjon a gaalbogi03@gmail.com címre.';
+contactStatus.style.color = '#E38B8B';
+contactStatus.style.display = 'block';
+})
+.finally(() => {
+contactSubmit.disabled = false;
+contactSubmit.textContent = 'Konzultációt kérek';
+});
+});
 </script>
 
 </body>
