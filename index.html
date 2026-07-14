@@ -352,6 +352,28 @@ opacity: 0.9;
 color: var(--dark-text);
 }
 
+/* "Kiknek segítek" fülek - kompaktabb, 3 oszlopos elrendezés */
+#kiknek-segitek .services-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+}
+
+#kiknek-segitek .service-card {
+margin: 0;
+min-width: 0;
+padding: 24px 26px;
+}
+
+#kiknek-segitek .service-header h3 {
+font-size: 1.1rem;
+}
+
+#kiknek-segitek .service-details p {
+font-size: 0.9rem;
+margin: 0 0 8px 0;
+}
+
 /* Magyarázat rész */
 .explanation {
 padding: 90px 0;
@@ -599,6 +621,13 @@ min-width: 100%;
 margin: 10px 0;
 padding: 30px;
 }
+#kiknek-segitek .services-grid {
+grid-template-columns: 1fr;
+gap: 10px;
+}
+#kiknek-segitek .service-card {
+padding: 20px;
+}
 .features {
 margin-top: 20px;
 }
@@ -685,6 +714,7 @@ margin: 10px 0;
 <li><strong>Mindennapi Bankszámlák:</strong> Átnézzük a költési szokásait, és lenyessük a felesleges havidíjakat, utalási sarcolásokat. Olyan számlákiemelést keresünk, ami Önnek spórol.</li>
 <li><strong>Gyors segítség (Személyi kölcsönök):</strong> Ha autóvásárlásra, felújításra vagy hirtelen jött kiadásra kell pénz, megtaláljuk a legkedvezőbb kamatú, rejtett buktatók nélküli megoldást.</li>
 <li><strong>A család és az értékek védelme:</strong> Olyan élet-, egészség- és lakásbiztosítást rakunk össze, ami egy váratlan helyzetben tényleg kifizeti a számlákat.</li>
+<li><strong>Nyugdíj-előtakarékosság:</strong> Már ma lerakjuk azoknak az alapját, hogy időskorára is anyagilag biztonságban és függetlenül élhessen.</li>
 </ul>
 </div>
 </div>
@@ -755,6 +785,7 @@ margin: 10px 0;
 </div>
 <div class="service-details">
 <p>Akik szülőként pontosan értik, hogy a család anyagi védelmét nem bízhatják a véletlenre.</p>
+<p><strong>Gyermekek jövőjéért:</strong> hosszú távú megtakarítási tervet is építünk, hogy gyermeke jövője már ma biztos alapokon álljon.</p>
 </div>
 </div>
 
