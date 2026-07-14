@@ -209,6 +209,35 @@ background-color: var(--accent-gold-hover);
 box-shadow: 0 8px 25px rgba(192, 164, 115, 0.4);
 }
 
+/* Lebegő CTA gomb */
+.floating-cta {
+position: fixed;
+right: 30px;
+bottom: 30px;
+z-index: 90;
+padding: 14px 30px;
+font-size: 0.95rem;
+opacity: 0;
+transform: translateY(20px);
+pointer-events: none;
+transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.floating-cta.visible {
+opacity: 1;
+transform: translateY(0);
+pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+.floating-cta {
+right: 20px;
+bottom: 20px;
+padding: 13px 22px;
+font-size: 0.9rem;
+}
+}
+
 /* Rólam */
 .about {
 padding: 100px 0;
@@ -261,6 +290,38 @@ font-size: 1.05rem;
 
 .about-text p:last-child {
 margin-bottom: 0;
+}
+
+.about-tags {
+margin-top: 28px;
+padding-top: 24px;
+border-top: 1px solid rgba(45, 26, 16, 0.08);
+}
+
+.about-tags-label {
+display: block;
+font-weight: 700;
+font-size: 0.85rem;
+text-transform: uppercase;
+letter-spacing: 1px;
+opacity: 0.6;
+margin-bottom: 14px;
+}
+
+.about-tags-list {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+}
+
+.tag {
+background-color: var(--primary-bg);
+border: 1px solid rgba(45, 26, 16, 0.08);
+border-radius: 50px;
+padding: 8px 16px;
+font-size: 0.85rem;
+font-weight: 600;
+white-space: nowrap;
 }
 
 /* Probléma / Megoldás */
@@ -406,28 +467,6 @@ opacity: 0.9;
 color: var(--dark-text);
 }
 
-/* "Kiknek segítek" fülek - kompaktabb, 3 oszlopos elrendezés */
-#kiknek-segitek .services-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 20px;
-}
-
-#kiknek-segitek .service-card {
-margin: 0;
-min-width: 0;
-padding: 24px 26px;
-}
-
-#kiknek-segitek .service-header h3 {
-font-size: 1.1rem;
-}
-
-#kiknek-segitek .service-details p {
-font-size: 0.9rem;
-margin: 0 0 8px 0;
-}
-
 /* Magyarázat rész */
 .explanation {
 padding: 90px 0;
@@ -491,6 +530,19 @@ letter-spacing: -0.3px;
 font-size: 0.95rem;
 opacity: 0.85;
 margin: 0;
+}
+
+.process-fee-note {
+margin-top: 50px;
+padding: 24px 28px;
+background-color: var(--primary-bg);
+border-radius: 16px;
+font-size: 0.95rem;
+opacity: 0.9;
+}
+
+.process-fee-note strong {
+color: var(--dark-text);
 }
 
 .process-quote {
@@ -744,13 +796,6 @@ min-width: 100%;
 margin: 10px 0;
 padding: 30px;
 }
-#kiknek-segitek .services-grid {
-grid-template-columns: 1fr;
-gap: 10px;
-}
-#kiknek-segitek .service-card {
-padding: 20px;
-}
 .features {
 margin-top: 20px;
 }
@@ -772,7 +817,7 @@ margin: 10px 0;
 <ul class="nav-links" id="nav-links">
 <li><a href="#rolam">Miért én?</a></li>
 <li><a href="#szolgaltatasok">Szolgáltatások</a></li>
-<li><a href="#miert-dijmentes">Miért díjmentes?</a></li>
+<li><a href="#folyamat">Hogyan dolgozom?</a></li>
 <li><a href="#kapcsolat">Időpontfoglalás</a></li>
 </ul>
 </div>
@@ -789,21 +834,6 @@ margin: 10px 0;
 <a href="#kapcsolat" class="btn">Beszéljük meg</a>
 </div>
 </header>
-
-<!-- RÓLAM -->
-<section class="about" id="rolam">
-<div class="container about-grid">
-<div class="about-image">
-<img src="images/rolam-boglarka.jpg" alt="Gaál Boglárka, független pénzügyi tanácsadó">
-</div>
-<div class="about-text">
-<span class="about-eyebrow">Miért én?</span>
-<h2>Gaál Boglárka vagyok, független pénzügyi tanácsadó</h2>
-<p>Szia! Sokan úgy gondolnak a pénzre, mint rideg számokra és bonyolult táblázatokra. Én eszköznek látom: valaminek, ami elviszi Önt oda, ahová el szeretne jutni, legyen szó az első saját otthon megvásárlásáról, a családja hosszú távú biztonságáról vagy a vállalkozása magabiztos növekedéséről.</p>
-<p>Tudatosan nem szakosodtam egyetlen szűk területre sem, mert hiszem, hogy a valódi pénzügyi biztonságot csak a teljes képet átlátva lehet felépíteni. Szinte minden élethelyzetre van jó megoldás a pénzügyek világában, az én dolgom, hogy ezt megtaláljam Önnek.</p>
-</div>
-</div>
-</section>
 
 <!-- PROBLÉMA / MEGOLDÁS -->
 <section class="intro" id="helyzetfelismeres">
@@ -823,6 +853,32 @@ margin: 10px 0;
 <div class="feature-box">
 <h3>Végigkísérem a folyamaton</h3>
 <p>A dokumentumok beszerzésében és az ügyintézés útvesztőiben is Ön mellett állok – a legelejétől a végéig.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- RÓLAM -->
+<section class="about" id="rolam">
+<div class="container about-grid">
+<div class="about-image">
+<img src="images/rolam-boglarka.jpg" alt="Gaál Boglárka, független pénzügyi tanácsadó">
+</div>
+<div class="about-text">
+<span class="about-eyebrow">Miért én?</span>
+<h2>Gaál Boglárka vagyok, független pénzügyi tanácsadó</h2>
+<p>Szia! Sokan úgy gondolnak a pénzre, mint rideg számokra és bonyolult táblázatokra. Én eszköznek látom: valaminek, ami elviszi Önt oda, ahová el szeretne jutni, legyen szó az első saját otthon megvásárlásáról, a családja hosszú távú biztonságáról vagy a vállalkozása magabiztos növekedéséről.</p>
+<p>Tudatosan nem szakosodtam egyetlen szűk területre sem, mert hiszem, hogy a valódi pénzügyi biztonságot csak a teljes képet átlátva lehet felépíteni. Szinte minden élethelyzetre van jó megoldás a pénzügyek világában, az én dolgom, hogy ezt megtaláljam Önnek.</p>
+<div class="about-tags">
+<span class="about-tags-label">Kiknek segítek?</span>
+<div class="about-tags-list">
+<span class="tag">🌱 Pénzügyi alapozók</span>
+<span class="tag">💍 Friss házasok és párok</span>
+<span class="tag">🏡 Saját lakásra/házra vágyók</span>
+<span class="tag">👨‍👩‍👧 Gondoskodó szülők</span>
+<span class="tag">⚖️ Business és magánélet egyensúlyozói</span>
+<span class="tag">🧩 Káoszból rendszert kereső</span>
+</div>
 </div>
 </div>
 </div>
@@ -853,6 +909,7 @@ margin: 10px 0;
 <li><strong>Gyors segítség (Személyi kölcsönök):</strong> Ha autóvásárlásra, felújításra vagy hirtelen jött kiadásra kell pénz, megtaláljuk a legkedvezőbb kamatú, rejtett buktatók nélküli megoldást.</li>
 <li><strong>A család és az értékek védelme:</strong> Olyan élet-, egészség- és lakásbiztosítást rakunk össze, ami egy váratlan helyzetben tényleg kifizeti a számlákat.</li>
 <li><strong>Nyugdíj-előtakarékosság:</strong> Már ma lerakjuk azoknak az alapját, hogy időskorára is anyagilag biztonságban és függetlenül élhessen.</li>
+<li><strong>Gyermekek jövőjéért:</strong> Hosszú távú megtakarítási tervet is építünk, hogy gyermeke jövője már ma biztos alapokon álljon.</li>
 </ul>
 </div>
 </div>
@@ -879,87 +936,9 @@ margin: 10px 0;
 </div>
 </section>
 
-<!-- KIKNEK SEGÍTEK -->
-<section class="services" id="kiknek-segitek" style="background-color: var(--primary-bg);">
-<div class="container">
-<h2 style="text-align: center; font-size: 2.2rem; margin-bottom: 20px;">Kiknek segítek, és miben?</h2>
-<p style="text-align: center; opacity: 0.7; margin-bottom: 50px;">Kattintson a kártyákra a részletek megtekintéséhez!</p>
-
-<div class="services-grid">
-<div class="service-card" onclick="toggleService(this)">
-<div class="service-header">
-<h3>🌱 Pénzügyi alapozók</h3>
-<span class="toggle-icon">▼</span>
-</div>
-<div class="service-details">
-<p>Akik tudatos pénzügyi alapokat szeretnének teremteni ahelyett, hogy csak céltalanul rakosgatnak félre.</p>
-</div>
-</div>
-
-<div class="service-card" onclick="toggleService(this)">
-<div class="service-header">
-<h3>💍 Friss házasok és párok</h3>
-<span class="toggle-icon">▼</span>
-</div>
-<div class="service-details">
-<p>Akik most alapozzák meg a közös életüket (legyen szó fészekrakásról, családalapításról vagy stabilitásról), és biztosra akarnak menni az indulásnál.</p>
-</div>
-</div>
-
-<div class="service-card" onclick="toggleService(this)">
-<div class="service-header">
-<h3>🏡 Saját lakásra/házra vágyók</h3>
-<span class="toggle-icon">▼</span>
-</div>
-<div class="service-details">
-<p>Akik a legkedvezőbb hitelek és támogatások mellett a jogi folyamatokat is biztos kezekben tudnák, hogy az adásvétel valóban stresszmentes legyen.</p>
-</div>
-</div>
-
-<div class="service-card" onclick="toggleService(this)">
-<div class="service-header">
-<h3>👨‍👩‍👧 Gondoskodó szülők</h3>
-<span class="toggle-icon">▼</span>
-</div>
-<div class="service-details">
-<p>Akik szülőként pontosan értik, hogy a család anyagi védelmét nem bízhatják a véletlenre.</p>
-<p>Gyermekek jövőjéért hosszú távú megtakarítási tervet is építünk, hogy gyermeke jövője már ma biztos alapokon álljon.</p>
-</div>
-</div>
-
-<div class="service-card" onclick="toggleService(this)">
-<div class="service-header">
-<h3>⚖️ Business és magánélet egyensúlyozói</h3>
-<span class="toggle-icon">▼</span>
-</div>
-<div class="service-details">
-<p>Akik szeretnék végre élesen elválasztani és tisztán átlátni a privát megtakarításaikat és az üzleti bevételeiket.</p>
-</div>
-</div>
-
-<div class="service-card" onclick="toggleService(this)">
-<div class="service-header">
-<h3>🧩 Káoszból rendszert kereső</h3>
-<span class="toggle-icon">▼</span>
-</div>
-<div class="service-details">
-<p>Akiknek már van néhány meglévő szerződésük (hitel, biztosítás, befektetés), de hiányzik egy szakértő, aki egységes és érthető rendszerré gyúrná össze őket.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- MIÉRT DÍJMENTES -->
-<section class="explanation" id="miert-dijmentes">
-<div class="container" style="max-width: 750px;">
-<h2>Miért díjmentes ez Önnek?</h2>
-<p>Nincs csapda, és nincsenek utólagos sikerdíjak sem. Az én munkámat a pénzintézetek finanszírozzák jutalék formájában, amiért elvégzem helyettük az adminisztráció nagy részét. Önnek ez a szolgáltatás teljesen díjmentes, viszont cserébe kap egy elkötelezett szakértőt, ami az Ön érdekeit védi.</p>
-</div>
-</section>
 
 <!-- HOGYAN DOLGOZUNK EGYÜTT -->
-<section class="process">
+<section class="process" id="folyamat">
 <div class="container" style="max-width: 900px;">
 <h2 style="text-align: center; font-size: 2.2rem; margin-bottom: 50px;">Hogyan dolgozunk együtt?</h2>
 
@@ -985,6 +964,10 @@ margin: 10px 0;
 <p>Átláthatóan, szakzsargon nélkül bemutatom a lehetőségeket. Te döntesz, én pedig végigviszem a teljes adminisztrációt.</p>
 </div>
 </div>
+</div>
+
+<div class="process-fee-note">
+<strong>Miért díjmentes ez Önnek?</strong> Nincs csapda, és nincsenek utólagos sikerdíjak sem — a munkámat a pénzintézetek finanszírozzák jutalék formájában, amiért elvégzem helyettük az adminisztráció nagy részét.
 </div>
 
 <blockquote class="process-quote">„A célom az, hogy a beszélgetésünk után, azt érezd: végre valaki átláthatóan és érthetően elmagyarázta, mi történik a pénzeddel.”</blockquote>
@@ -1051,6 +1034,9 @@ margin: 10px 0;
 </section>
 </main>
 
+<!-- LEBEGŐ CTA GOMB -->
+<a href="#kapcsolat" class="btn floating-cta" id="floating-cta">Ingyenes konzultáció</a>
+
 <!-- LÁBLÉC -->
 <footer class="main-footer">
 <div class="container">
@@ -1065,7 +1051,7 @@ margin: 10px 0;
 <h4>Menüpontok</h4>
 <p><a href="#rolam">Miért én?</a></p>
 <p><a href="#szolgaltatasok">Szolgáltatások</a></p>
-<p><a href="#miert-dijmentes">Miért díjmentes?</a></p>
+<p><a href="#folyamat">Hogyan dolgozom?</a></p>
 <p><a href="#kapcsolat">Időpontfoglalás</a></p>
 </div>
 <div class="footer-col">
@@ -1082,6 +1068,20 @@ margin: 10px 0;
 
 <!-- INTERAKTÍV JAVASCRIPT A LENYÍLÓS MODULHOZ -->
 <script>
+// LEBEGŐ CTA GOMB - a hero után jelenik meg, a kapcsolat szekciónál eltűnik
+const floatingCta = document.getElementById('floating-cta');
+const heroSection = document.querySelector('.hero');
+const contactSection = document.getElementById('kapcsolat');
+
+const ctaObserver = new IntersectionObserver(function() {
+const heroVisible = heroSection.getBoundingClientRect().bottom > 0;
+const contactVisible = contactSection.getBoundingClientRect().top < window.innerHeight;
+floatingCta.classList.toggle('visible', !heroVisible && !contactVisible);
+}, { threshold: 0 });
+
+ctaObserver.observe(heroSection);
+ctaObserver.observe(contactSection);
+
 // MOBIL HAMBURGER MENÜ
 const navToggle = document.getElementById('nav-toggle');
 const navLinks = document.getElementById('nav-links');
