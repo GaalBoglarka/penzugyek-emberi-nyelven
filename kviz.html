@@ -91,6 +91,7 @@
 <input type="hidden" name="subject" value="Új kvíz kitöltés – Milyen típusú megtakarító vagy?">
 <input type="hidden" name="from_name" value="Pénzügyek Emberi Nyelven – Kvíz">
 <input type="hidden" name="kviz_eredmeny" id="quiz-result-input" value="">
+<input type="hidden" name="kviz_valaszok" id="quiz-answers-input" value="">
 <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
 <div class="form-group">
@@ -289,6 +290,7 @@ next: "Neked egy teljes körű pénzügyi átvilágítás segítene, ahol egy he
 
 let currentQuestion = 0;
 const scores = { A: 0, B: 0, C: 0, D: 0 };
+const answersLog = [];
 
 const progressBar = document.getElementById('quiz-progress-bar');
 const questionCount = document.getElementById('quiz-question-count');
@@ -320,6 +322,7 @@ btn.appendChild(iconSpan);
 btn.appendChild(labelSpan);
 btn.addEventListener('click', function() {
 scores[opt.type]++;
+answersLog.push((currentQuestion + 1) + '. ' + q.text + ' — ' + labelSpan.textContent);
 btn.classList.add('selected');
 setTimeout(function() {
 if (currentQuestion < quizQuestions.length - 1) {
@@ -354,6 +357,7 @@ document.getElementById('quiz-result-title').textContent = result.title;
 document.getElementById('quiz-result-desc').textContent = result.desc;
 document.getElementById('quiz-result-next').textContent = result.next;
 document.getElementById('quiz-result-input').value = result.title;
+document.getElementById('quiz-answers-input').value = answersLog.join('\n');
 
 resultWrap.style.display = 'block';
 }
