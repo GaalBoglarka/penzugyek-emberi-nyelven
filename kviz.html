@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milyen típusú megtakarító vagy? - Kvíz | Pénzügyek Emberi Nyelven</title>
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<meta name="description" content="Töltsd ki az 1 perces kvízt, és tudd meg, milyen típusú megtakarító vagy - és mi lehetne a következő jó pénzügyi lépésed.">
+
+<!-- MEGOSZTÁSI ELŐNÉZET (OPEN GRAPH) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Milyen típusú megtakarító vagy? | Pénzügyek Emberi Nyelven">
+<meta property="og:description" content="Töltsd ki az 1 perces kvízt, és tudd meg, milyen típusú megtakarító vagy - és mi lehetne a következő jó pénzügyi lépésed.">
+<meta property="og:image" content="https://gaalbogi03-ui.github.io/Bogi-weboldal/images/og-image.jpg">
+<meta property="og:url" content="https://gaalbogi03-ui.github.io/Bogi-weboldal/kviz.html">
+<meta property="og:locale" content="hu_HU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Milyen típusú megtakarító vagy? | Pénzügyek Emberi Nyelven">
+<meta name="twitter:description" content="Töltsd ki az 1 perces kvízt, és tudd meg, milyen típusú megtakarító vagy - és mi lehetne a következő jó pénzügyi lépésed.">
+<meta name="twitter:image" content="https://gaalbogi03-ui.github.io/Bogi-weboldal/images/og-image.jpg">
+
+<!-- Helyben tárolt Plus Jakarta Sans betűtípus (GDPR miatt nem Google szerverről töltődik be) -->
+<link href="fonts/plus-jakarta-sans.css" rel="stylesheet">
+<link href="styles.css" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- NAVIGÁCIÓ -->
+<nav class="navbar">
+<div class="container">
+<a href="index.html" class="logo">Pénzügyek Emberi Nyelven</a>
+<button class="nav-toggle" id="nav-toggle" aria-label="Menü megnyitása" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+<ul class="nav-links" id="nav-links">
+<li><a href="index.html#rolam">Miért én?</a></li>
+<li><a href="index.html#szolgaltatasok">Szolgáltatások</a></li>
+<li><a href="index.html#folyamat">Hogyan dolgozom?</a></li>
+<li><a href="kviz.html">Kvíz</a></li>
+<li><a href="karrier.html">Karrier</a></li>
+<li><a href="index.html#kapcsolat">Időpontfoglalás</a></li>
+</ul>
+</div>
+</nav>
+
+<main>
+<!-- KVÍZ FEJLÉC -->
+<header class="quiz-header">
+<div class="container">
+<h1>Milyen típusú megtakarító vagy?</h1>
+<p>Válaszolj 6 rövid kérdésre, és megtudod, melyik pénzügyi típusra hasonlítasz leginkább - és mi lehetne a következő jó lépésed.</p>
+</div>
+</header>
+
+<!-- KVÍZ -->
+<section class="quiz-section">
+<div class="container">
+<div class="quiz-card" id="quiz-card">
+
+<!-- KÉRDÉSEK KONTÉNER (JS tölti fel) -->
+<div id="quiz-progress-wrap">
+<div class="quiz-progress-track">
+<div class="quiz-progress-bar" id="quiz-progress-bar"></div>
+</div>
+</div>
+
+<div id="quiz-question-wrap">
+<div class="quiz-question-count" id="quiz-question-count"></div>
+<div class="quiz-question">
+<h3 id="quiz-question-text"></h3>
+<div class="quiz-options" id="quiz-options"></div>
+</div>
+</div>
+
+<!-- EREDMÉNY (JS jeleníti meg) -->
+<div class="quiz-result" id="quiz-result" style="display:none;">
+<div class="quiz-result-emoji" id="quiz-result-emoji"></div>
+<h2 id="quiz-result-title"></h2>
+<p class="quiz-result-desc" id="quiz-result-desc"></p>
+<div class="quiz-result-next" id="quiz-result-next"></div>
+
+<p class="quiz-lead-intro">Kéred, hogy elküldjük emailben az eredményed, és felvegyük veled a kapcsolatot egy díjmentes konzultáció erejéig?</p>
+
+<form id="quiz-form" class="quiz-form" action="https://api.web3forms.com/submit" method="POST">
+<input type="hidden" name="access_key" value="3ff886d4-8d54-4756-86e4-f9f395a678a9">
+<input type="hidden" name="subject" value="Új kvíz kitöltés – Milyen típusú megtakarító vagy?">
+<input type="hidden" name="from_name" value="Pénzügyek Emberi Nyelven – Kvíz">
+<input type="hidden" name="kviz_eredmeny" id="quiz-result-input" value="">
+<input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+<div class="form-group">
+<label for="quiz-name">Az Ön neve</label>
+<input type="text" id="quiz-name" name="name" placeholder="Pl. Kiss János" required>
+</div>
+
+<div class="form-group">
+<label for="quiz-email">E-mail címe</label>
+<input type="email" id="quiz-email" name="email" placeholder="pelda@email.hu" required>
+</div>
+
+<div class="form-group">
+<label for="quiz-phone">Telefonszáma (opcionális)</label>
+<input type="tel" id="quiz-phone" name="phone" placeholder="Pl. +36 30 123 4567">
+</div>
+
+<div class="checkbox-group">
+<input type="checkbox" id="quiz-aszf" name="aszf" required>
+<label for="quiz-aszf">Elolvastam és elfogadom az <a href="https://www.ovb.hu/szerviz/adatkezelesi-szabalyzat.html" target="_blank">Adatkezelési Tájékoztatót</a>, hozzájárulok az adataim kezeléséhez.</label>
+</div>
+
+<button type="submit" id="quiz-submit">Kérem az eredményem és egy konzultációt</button>
+<p id="quiz-status" style="margin-top: 18px; font-weight: 600; display: none;"></p>
+</form>
+
+<a href="index.html" class="quiz-back-link">← Vissza a főoldalra</a>
+</div>
+
+</div>
+</div>
+</section>
+</main>
+
+<!-- LÁBLÉC -->
+<footer class="main-footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col">
+<h4>Kapcsolat</h4>
+<p>📧 Email: <a href="mailto:penzugyekemberinyelven@gmail.com">penzugyekemberinyelven@gmail.com</a></p>
+<p>📞 Telefon: <a href="tel:+36703040084">+36 70 304 0084</a></p>
+<p>📍 Találkozó: Online vagy személyesen, irodámban, előre egyeztetett időpontban.</p>
+</div>
+<div class="footer-col">
+<h4>Menüpontok</h4>
+<p><a href="index.html#rolam">Miért én?</a></p>
+<p><a href="index.html#szolgaltatasok">Szolgáltatások</a></p>
+<p><a href="index.html#folyamat">Hogyan dolgozom?</a></p>
+<p><a href="kviz.html">Kvíz</a></p>
+<p><a href="karrier.html">Karrier</a></p>
+<p><a href="index.html#kapcsolat">Időpontfoglalás</a></p>
+</div>
+<div class="footer-col">
+<h4>Jogi státusz</h4>
+<p>Az MNB (Magyar Nemzeti Bank) nyilvántartásában szereplő, engedéllyel rendelkező független pénzügyi közvetítő vagyok. A tanácsadás során a mindenkori jogszabályi előírásoknak megfelelően járok el.</p>
+</div>
+<div class="footer-col">
+<h4>Kövess</h4>
+<p>📘 <a href="https://www.facebook.com/profile.php?id=61591757138707" target="_blank" rel="noopener">Facebook</a></p>
+<p>📸 <a href="https://www.instagram.com/penzugyekemberinyelven/" target="_blank" rel="noopener">Instagram</a></p>
+</div>
+</div>
+
+<div class="footer-legal">
+<p>&copy; 2026 Pénzügyek Emberi Nyelven. Minden jog fenntartva. | <a href="https://www.ovb.hu/szerviz/adatkezelesi-szabalyzat.html" target="_blank">Adatkezelési Tájékoztató</a></p>
+</div>
+</div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// KVÍZ ADATOK
+const quizQuestions = [
+{
+text: "Ha most kapnál egy váratlan 500 000 Ft-ot, mit tennél vele elsőként?",
+options: [
+{ text: "Félreteszem egy vésztartalékba, biztos, ami biztos.", type: "A" },
+{ text: "A nagy célomra teszem félre (pl. lakás, esküvő, vállalkozás).", type: "B" },
+{ text: "A családom biztonságára fordítanám, pl. biztosításra.", type: "C" },
+{ text: "Passzívan a számlámon maradna, mert nem tudom, hova kéne tennem.", type: "D" }
+]
+},
+{
+text: "Hogyan írnád le most a pénzügyeidet egy mondatban?",
+options: [
+{ text: "Még csak most kezdek igazán tudatosan gondolkodni róla.", type: "A" },
+{ text: "Van egy konkrét célom, és tudatosan haladok felé.", type: "B" },
+{ text: "Mindent a családom, a szeretteim szemszögéből nézek.", type: "C" },
+{ text: "Sok mindenem van, de nincs átfogó rendszerem, kicsit kaotikus.", type: "D" }
+]
+},
+{
+text: "Mi jut eszedbe elsőre a „pénzügyi biztonság” kifejezésről?",
+options: [
+{ text: "Hogy legyen egy alap, amire később építkezni tudok.", type: "A" },
+{ text: "Hogy elérjem azt, amit régóta szeretnék.", type: "B" },
+{ text: "Hogy a családomnak semmi baja ne eshessen anyagilag.", type: "C" },
+{ text: "Hogy végre átlássam, mim van, és mire mennyi jut.", type: "D" }
+]
+},
+{
+text: "Melyik mondat áll hozzád a legközelebb?",
+options: [
+{ text: "„Szeretnék tanulni, de nem tudom, hol kezdjem.”", type: "A" },
+{ text: "„Pontosan tudom, mit akarok, csak segítség kell hozzá.”", type: "B" },
+{ text: "„A családomért szinte bármit megteszek.”", type: "C" },
+{ text: "„Sok mindent elkezdtem már, de semmit nem fejeztem be igazán.”", type: "D" }
+]
+},
+{
+text: "Mikor néztél utoljára át egy biztosítást, megtakarítást vagy hitelt?",
+options: [
+{ text: "Még soha, most lenne itt az ideje.", type: "A" },
+{ text: "Nemrég, mert egy konkrét célra aktívan gyűjtök.", type: "B" },
+{ text: "Amikor családi életeseményem volt, pl. gyerek vagy házasság.", type: "C" },
+{ text: "Régen, mert túl bonyolultnak érzem az egészet.", type: "D" }
+]
+},
+{
+text: "Mi motivál leginkább, amikor pénzügyi döntést hozol?",
+options: [
+{ text: "Hogy megértsem, hogyan is működik mindez.", type: "A" },
+{ text: "Hogy közelebb kerüljek a nagy célomhoz.", type: "B" },
+{ text: "Hogy a szeretteim biztonságban legyenek.", type: "C" },
+{ text: "Hogy végre rend és átláthatóság legyen a pénzemben.", type: "D" }
+]
+}
+];
+
+const quizResults = {
+A: {
+emoji: "🌱",
+title: "Az Alapozó",
+desc: "Te most rakod le a pénzügyi tudatosság alapjait, és ez pontosan így van jól. Nem attól kell tartanod, hogy hibázol, hanem attól, ha nem kezdesz neki. Egy jól felépített első lépés - legyen szó bankszámla-optimalizálásról vagy az első megtakarításról - hosszú távon hatalmas különbséget jelent.",
+next: "Neked elsőként egy őszinte, alapozó beszélgetés segítene, ahol együtt átnézzük, honnan érdemes elindulnod."
+},
+B: {
+emoji: "🏡",
+title: "A Célegyenesben Lévő",
+desc: "Tudod, mit szeretnél elérni, és készen állsz rá, hogy tegyél is érte. Legyen szó saját otthonról, esküvőről vagy egy vállalkozás elindításáról, neked már csak egy jól felépített terv és a megfelelő pénzügyi konstrukció hiányzik ahhoz, hogy a célod valóra váljon.",
+next: "Neked egy célra szabott stratégia segítene, hogy a leggyorsabb és legköltséghatékonyabb úton juss el oda, ahová szeretnél."
+},
+C: {
+emoji: "👨‍👩‍👧",
+title: "A Gondoskodó",
+desc: "Számodra a legfontosabb, hogy azok, akiket szeretsz, biztonságban legyenek - bármi is történjen. Ezt a hozzáállást érdemes egy átgondolt biztosítási és megtakarítási tervvel is alátámasztani, hogy ne csak érzésre, hanem valóban is védve legyen a családod.",
+next: "Neked egy family-first átvilágítás segítene, ahol átnézzük a biztosításaidat és a gyermeked jövőjére szánt megtakarítást."
+},
+D: {
+emoji: "🧩",
+title: "A Rendszerező",
+desc: "Neked nem hiányoznak a lehetőségek vagy a szándék - hanem az átláthatóság. Valószínűleg több helyen is van már valamid (biztosítás, megtakarítás, hitel), de nincs, aki összerakja neked az egészet egy koherens képpé.",
+next: "Neked egy teljes körű pénzügyi átvilágítás segítene, ahol egy helyen, érthetően átlátjuk, mid van, és mit érdemes lenne másképp csinálni."
+}
+};
+
+let currentQuestion = 0;
+const scores = { A: 0, B: 0, C: 0, D: 0 };
+
+const progressBar = document.getElementById('quiz-progress-bar');
+const questionCount = document.getElementById('quiz-question-count');
+const questionText = document.getElementById('quiz-question-text');
+const optionsWrap = document.getElementById('quiz-options');
+const questionWrap = document.getElementById('quiz-question-wrap');
+const progressWrap = document.getElementById('quiz-progress-wrap');
+const resultWrap = document.getElementById('quiz-result');
+
+function renderQuestion() {
+const q = quizQuestions[currentQuestion];
+questionCount.textContent = (currentQuestion + 1) + ' / ' + quizQuestions.length + '. kérdés';
+questionText.textContent = q.text;
+progressBar.style.width = ((currentQuestion) / quizQuestions.length * 100) + '%';
+
+optionsWrap.innerHTML = '';
+q.options.forEach(function(opt) {
+const btn = document.createElement('button');
+btn.type = 'button';
+btn.className = 'quiz-option';
+btn.textContent = opt.text;
+btn.addEventListener('click', function() {
+scores[opt.type]++;
+btn.classList.add('selected');
+setTimeout(function() {
+if (currentQuestion < quizQuestions.length - 1) {
+currentQuestion++;
+renderQuestion();
+} else {
+showResult();
+}
+}, 300);
+});
+optionsWrap.appendChild(btn);
+});
+}
+
+function showResult() {
+progressBar.style.width = '100%';
+questionWrap.style.display = 'none';
+progressWrap.style.display = 'none';
+
+let topType = 'A';
+let topScore = -1;
+Object.keys(scores).forEach(function(type) {
+if (scores[type] > topScore) {
+topScore = scores[type];
+topType = type;
+}
+});
+
+const result = quizResults[topType];
+document.getElementById('quiz-result-emoji').textContent = result.emoji;
+document.getElementById('quiz-result-title').textContent = result.title;
+document.getElementById('quiz-result-desc').textContent = result.desc;
+document.getElementById('quiz-result-next').textContent = result.next;
+document.getElementById('quiz-result-input').value = result.title;
+
+resultWrap.style.display = 'block';
+}
+
+renderQuestion();
+
+// KVÍZ ŰRLAP KÜLDÉSE (Web3Forms, oldalelhagyás nélkül)
+const quizForm = document.getElementById('quiz-form');
+const quizStatus = document.getElementById('quiz-status');
+const quizSubmit = document.getElementById('quiz-submit');
+
+quizForm.addEventListener('submit', function(e) {
+e.preventDefault();
+
+quizSubmit.disabled = true;
+quizSubmit.textContent = 'Küldés...';
+quizStatus.style.display = 'none';
+
+fetch(quizForm.action, {
+method: 'POST',
+headers: { 'Accept': 'application/json' },
+body: new FormData(quizForm)
+})
+.then(response => response.json())
+.then(data => {
+if (data.success) {
+quizStatus.textContent = 'Köszönjük! Az eredményedet megkaptuk, hamarosan felvesszük veled a kapcsolatot.';
+quizStatus.style.color = '#8FCB9B';
+quizForm.reset();
+quizForm.style.display = 'none';
+} else {
+quizStatus.textContent = 'Hiba történt a küldés során. Kérjük, próbáld meg később, vagy írj a penzugyekemberinyelven@gmail.com címre.';
+quizStatus.style.color = '#E38B8B';
+}
+quizStatus.style.display = 'block';
+})
+.catch(() => {
+quizStatus.textContent = 'Hiba történt a küldés során. Kérjük, próbáld meg később, vagy írj a penzugyekemberinyelven@gmail.com címre.';
+quizStatus.style.color = '#E38B8B';
+quizStatus.style.display = 'block';
+})
+.finally(() => {
+quizSubmit.disabled = false;
+quizSubmit.textContent = 'Kérem az eredményem és egy konzultációt';
+});
+});
+</script>
+
+</body>
+</html>
