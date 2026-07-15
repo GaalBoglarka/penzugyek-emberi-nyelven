@@ -82,7 +82,7 @@
 <p class="quiz-result-desc" id="quiz-result-desc"></p>
 <div class="quiz-result-next" id="quiz-result-next"></div>
 
-<p class="quiz-disclaimer">Ez az eredmény egy gyors, tájékozódó jellegű teszt, nem egy végleges elemzés, és nem feltétlenül fedi pontosan a valós helyzeted - éppen ezért érdemes elküldeni emailben, hogy személyesen is átnézhessük együtt.</p>
+<p class="quiz-disclaimer">Ez az eredmény egy gyors, tájékozódó jellegű teszt, nem egy végleges pénzügyi elemzés, és nem feltétlenül fedi pontosan a valós helyzeted.</p>
 
 <p class="quiz-lead-intro">A tényleges, személyre szabott választ csak itt kapod meg: add meg az adataid, elküldjük emailben a részletes eredményed, és felvesszük veled a kapcsolatot egy díjmentes konzultáció erejéig.</p>
 
@@ -167,90 +167,90 @@ const quizQuestions = [
 {
 text: "Ha most kapnál egy váratlan 500 000 Ft-ot, mit tennél vele elsőként?",
 options: [
-{ text: "🌱 Félreteszem vésztartalékba", type: "A" },
+{ text: "🌱 Félreteszem, vésztartalékba", type: "A" },
 { text: "🏡 A nagy célomra teszem félre", type: "B" },
-{ text: "👨‍👩‍👧 Családi biztosításra fordítom", type: "C" },
-{ text: "🧩 Nem tudnám, hova tegyem", type: "D" }
+{ text: "👨‍👩‍👧 A családom biztonságára fordítom", type: "C" },
+{ text: "🧩 Fogalmam sincs, hova tenném", type: "D" }
 ]
 },
 {
-text: "Hogyan írnád le most a pénzügyeidet?",
+text: "Hogyan jellemeznéd most a pénzügyi helyzeted?",
 options: [
-{ text: "🌱 Még csak most kezdem", type: "A" },
-{ text: "🏡 Van egy konkrét célom", type: "B" },
-{ text: "👨‍👩‍👧 Mindent a családom szemével nézek", type: "C" },
-{ text: "🧩 Kaotikus, nincs átfogó rendszerem", type: "D" }
+{ text: "🌱 Még csak most kezdem megérteni", type: "A" },
+{ text: "🏡 Van egy konkrét célom, afelé haladok", type: "B" },
+{ text: "👨‍👩‍👧 Mindent a családom szemszögéből nézek", type: "C" },
+{ text: "🧩 Sok mindenem van, de kaotikus", type: "D" }
 ]
 },
 {
 text: "Mi jut eszedbe elsőre a „pénzügyi biztonság” kifejezésről?",
 options: [
-{ text: "🌱 Egy alap, amire építkezem", type: "A" },
-{ text: "🏡 Hogy elérjem, amit szeretnék", type: "B" },
+{ text: "🌱 Egy alap, amire építkezhetek", type: "A" },
+{ text: "🏡 Hogy elérem, amit régóta szeretnék", type: "B" },
 { text: "👨‍👩‍👧 Hogy a családom védve legyen", type: "C" },
-{ text: "🧩 Hogy végre átlássam mindent", type: "D" }
+{ text: "🧩 Hogy végre átlássam az egészet", type: "D" }
 ]
 },
 {
 text: "Melyik mondat áll hozzád a legközelebb?",
 options: [
-{ text: "🌱 Tanulnék, de nem tudom, hol kezdjem", type: "A" },
-{ text: "🏡 Tudom mit akarok, segítség kell hozzá", type: "B" },
-{ text: "👨‍👩‍👧 A családomért bármit megteszek", type: "C" },
+{ text: "🌱 Tanulnék, csak nem tudom, hol kezdjem", type: "A" },
+{ text: "🏡 Tudom, mit akarok, segítség kell hozzá", type: "B" },
+{ text: "👨‍👩‍👧 A családomért szinte bármit megteszek", type: "C" },
 { text: "🧩 Sokba belekezdtem, semmit be nem fejeztem", type: "D" }
 ]
 },
 {
 text: "Mikor néztél utoljára át egy biztosítást, megtakarítást vagy hitelt?",
 options: [
-{ text: "🌱 Még soha", type: "A" },
-{ text: "🏡 Nemrég, célra gyűjtök", type: "B" },
-{ text: "👨‍👩‍👧 Családi életeseménykor", type: "C" },
-{ text: "🧩 Régen, túl bonyolult", type: "D" }
+{ text: "🌱 Még soha, ideje lenne", type: "A" },
+{ text: "🏡 Nemrég, mert célra gyűjtök", type: "B" },
+{ text: "👨‍👩‍👧 Egy családi életeseménykor", type: "C" },
+{ text: "🧩 Régen, túl bonyolultnak érzem", type: "D" }
 ]
 },
 {
 text: "Mi motivál leginkább, amikor pénzügyi döntést hozol?",
 options: [
-{ text: "🌱 Hogy megértsem, hogyan működik", type: "A" },
-{ text: "🏡 Hogy elérjem a célom", type: "B" },
-{ text: "👨‍👩‍👧 Hogy szeretteim biztonságban legyenek", type: "C" },
-{ text: "🧩 Hogy végre rend legyen", type: "D" }
+{ text: "🌱 Hogy végre megértsem, hogy működik", type: "A" },
+{ text: "🏡 Hogy közelebb kerüljek a célomhoz", type: "B" },
+{ text: "👨‍👩‍👧 Hogy a szeretteim biztonságban legyenek", type: "C" },
+{ text: "🧩 Hogy végre átlátható legyen minden", type: "D" }
 ]
 },
 {
-text: "Hogy állsz a vésztartalékkal és a befektetéseid védelmével?",
+text: "Mennyire vagy felkészülve egy váratlan helyzetre - van vésztartalékod vagy védett befektetésed?",
 options: [
-{ text: "🌱 Még nincs, ez lenne az első lépés", type: "A" },
-{ text: "🏡 Tudatosan építem egy célra", type: "B" },
+{ text: "🌱 Még nincs, ez lenne az első lépésem", type: "A" },
+{ text: "🏡 Tudatosan építem, egy célra gyűjtve", type: "B" },
 { text: "👨‍👩‍👧 Biztonságos, garantált megoldást választok", type: "C" },
-{ text: "🧩 Van valamim, de nem tudom mennyire védett", type: "D" }
+{ text: "🧩 Van valamim, de nem tudom, mennyire védett", type: "D" }
 ]
 },
 {
-text: "Hogy állsz jelenleg a lakhatással?",
+text: "Hogy állsz jelenleg a saját otthon témájával?",
 options: [
 { text: "🌱 Még nem volt saját ingatlanom", type: "A" },
 { text: "🏡 Aktívan gyűjtök egy új otthonra", type: "B" },
 { text: "👨‍👩‍👧 A családomért fontos a saját otthon", type: "C" },
-{ text: "🧩 Szeretnék, de nem tudom hol tartok", type: "D" }
+{ text: "🧩 Szeretnék, de nem tudom, hol tartok", type: "D" }
 ]
 },
 {
 text: "Mennyire vagy elégedett a jelenlegi bankszámláddal?",
 options: [
-{ text: "🌱 Sosem néztem még utána", type: "A" },
-{ text: "🏡 Tudatosan választottam a céljaimhoz", type: "B" },
+{ text: "🌱 Sosem hasonlítottam még össze másokkal", type: "A" },
+{ text: "🏡 Tudatosan a céljaimhoz választottam", type: "B" },
 { text: "👨‍👩‍👧 A családi költéshez igazítottam", type: "C" },
-{ text: "🧩 Fizetek érte, de nem hasonlítottam össze", type: "D" }
+{ text: "🧩 Fizetek érte, de nem tudom, miért", type: "D" }
 ]
 },
 {
-text: "Hogy állsz a gyerekek témájában pénzügyileg?",
+text: "Hogy állsz a gyerekvállalás vagy a gyermeked jövője pénzügyi oldalával?",
 options: [
-{ text: "🌱 Még nincs gyerekem, nem terveztem", type: "A" },
-{ text: "🏡 Tervezek gyereket, készülök rá anyagilag", type: "B" },
-{ text: "👨‍👩‍👧 Aktívan gondoskodom a jövőjéről", type: "C" },
+{ text: "🌱 Még nincs gyerekem, nem is terveztem ezt", type: "A" },
+{ text: "🏡 Tervezek gyereket, anyagilag is készülök rá", type: "B" },
+{ text: "👨‍👩‍👧 Aktívan gondoskodom a gyermekem jövőjéről", type: "C" },
 { text: "🧩 Van gyerekem, de nincs köré rendszer", type: "D" }
 ]
 }
