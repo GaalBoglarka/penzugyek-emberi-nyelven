@@ -1150,3 +1150,305 @@ font-size: 2rem;
 padding: 40px 24px;
 }
 }
+
+
+/* =====================================================
+   ÚJ MEGJELENÉS (2026. november) - a meglévő színekre építve
+   ===================================================== */
+
+/* Felső sáv */
+.topbar {
+background-color: var(--dark-text);
+color: #E9DDD1;
+font-size: 0.82rem;
+}
+.topbar .container {
+display: flex;
+justify-content: flex-end;
+gap: 26px;
+padding: 9px 0;
+}
+.topbar a {
+color: inherit;
+text-decoration: none;
+}
+.topbar a:hover {
+color: var(--accent-gold);
+}
+
+/* Menü időpontfoglaló gombja */
+.nav-links a.nav-cta {
+display: inline-block;
+background-color: var(--dark-text);
+color: #ffffff;
+opacity: 1;
+padding: 10px 22px;
+border-radius: 50px;
+transition: background-color 0.2s ease;
+}
+.nav-links a.nav-cta:hover {
+background-color: var(--accent-gold-hover);
+}
+
+/* Hero: szöveg balra, portré jobbra */
+.hero.hero-split {
+padding: 0;
+text-align: left;
+background-color: var(--dark-text);
+color: var(--primary-bg);
+}
+.hero-grid {
+display: grid;
+grid-template-columns: 1.1fr 1fr;
+gap: 56px;
+align-items: center;
+padding: 64px 0 104px 0;
+}
+.hero-eyebrow {
+display: block;
+color: var(--accent-gold);
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 1.5px;
+font-size: 0.85rem;
+margin-bottom: 14px;
+}
+.hero.hero-split h1 {
+color: var(--primary-bg);
+font-size: 3.8rem;
+line-height: 1.1;
+letter-spacing: -1.5px;
+margin: 0 0 8px 0;
+}
+.hero.hero-split .hero-role {
+font-size: 1.3rem;
+font-weight: 600;
+color: #E9DDD1;
+opacity: 1;
+margin: 0 0 18px 0;
+max-width: none;
+}
+.hero.hero-split .hero-lead {
+font-size: 1.1rem;
+color: #E9DDD1;
+opacity: 0.9;
+max-width: 540px;
+margin: 0 0 34px 0;
+}
+.hero-actions {
+display: flex;
+flex-wrap: wrap;
+gap: 14px;
+}
+.btn.btn-outline {
+background-color: transparent;
+color: var(--primary-bg);
+border: 1.5px solid rgba(252, 249, 242, 0.7);
+box-shadow: none;
+padding: 14.5px 34px;
+}
+.btn.btn-outline:hover {
+background-color: rgba(252, 249, 242, 0.12);
+box-shadow: none;
+}
+.hero-photo img {
+display: block;
+width: 100%;
+max-height: 520px;
+object-fit: cover;
+object-position: 50% 15%;
+border-radius: 28px;
+}
+
+/* Bizalmi pontok a hero alatt */
+.trust-strip {
+position: relative;
+z-index: 3;
+margin-top: -56px;
+}
+.trust-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+background-color: var(--white-bg);
+border-radius: 20px;
+box-shadow: var(--card-shadow-hover);
+}
+.trust-item {
+padding: 28px 32px;
+border-right: 1px solid rgba(45, 26, 16, 0.08);
+}
+.trust-item:last-child {
+border-right: none;
+}
+.trust-item h3 {
+font-size: 1.1rem;
+font-weight: 700;
+margin: 0 0 6px 0;
+letter-spacing: -0.3px;
+}
+.trust-item p {
+font-size: 0.92rem;
+opacity: 0.8;
+margin: 0;
+}
+.intro.intro-lead {
+padding-top: 80px;
+}
+
+/* Csapat: nagyobb képek */
+.team-member {
+width: 190px;
+}
+.team-member h3 {
+font-size: 1rem;
+}
+.team-role {
+font-size: 0.85rem;
+}
+
+/* Szolgáltatások: hat fotós kártya */
+.svc-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 24px;
+align-items: start;
+}
+.svc-card {
+background-color: var(--primary-bg);
+border-radius: 20px;
+overflow: hidden;
+border: 1px solid rgba(45, 26, 16, 0.06);
+text-align: left;
+transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+.svc-card:hover {
+transform: translateY(-4px);
+box-shadow: var(--card-shadow-hover);
+}
+.svc-img {
+height: 230px;
+overflow: hidden;
+}
+.svc-img img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+}
+.svc-body {
+padding: 26px 26px 24px 26px;
+}
+.svc-body h3 {
+font-size: 1.25rem;
+font-weight: 700;
+margin: 0 0 8px 0;
+letter-spacing: -0.4px;
+}
+.svc-body p {
+margin: 0 0 14px 0;
+opacity: 0.85;
+font-size: 0.95rem;
+}
+.svc-more {
+background: none;
+border: none;
+padding: 0;
+font-family: inherit;
+font-weight: 700;
+font-size: 0.92rem;
+color: var(--accent-gold-hover);
+cursor: pointer;
+}
+.svc-more::after {
+content: " ▼";
+font-size: 0.75em;
+}
+.svc-card.active .svc-more::after {
+content: " ▲";
+}
+.svc-details {
+max-height: 0;
+overflow: hidden;
+opacity: 0;
+transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+.svc-card.active .svc-details {
+max-height: 900px;
+opacity: 1;
+margin-top: 16px;
+padding-top: 16px;
+border-top: 1px solid rgba(45, 26, 16, 0.1);
+}
+.svc-details ul {
+padding-left: 20px;
+margin: 0;
+}
+.svc-details li {
+margin-bottom: 10px;
+font-size: 0.92rem;
+opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+.hero-grid {
+grid-template-columns: 1fr;
+gap: 32px;
+padding: 40px 0 90px 0;
+}
+.hero-photo {
+order: -1;
+}
+.hero-photo img {
+max-height: 380px;
+}
+.hero.hero-split h1 {
+font-size: 2.8rem;
+}
+.trust-grid {
+grid-template-columns: 1fr;
+}
+.trust-item {
+border-right: none;
+border-bottom: 1px solid rgba(45, 26, 16, 0.08);
+}
+.trust-item:last-child {
+border-bottom: none;
+}
+.svc-grid {
+grid-template-columns: 1fr 1fr;
+}
+}
+
+@media (max-width: 768px) {
+.topbar {
+display: none;
+}
+.btn.btn-outline,
+.hero-actions .btn {
+display: block;
+width: 100%;
+text-align: center;
+box-sizing: border-box;
+}
+.nav-links a.nav-cta {
+margin: 6px 0;
+}
+.team-member {
+width: 150px;
+}
+}
+
+@media (max-width: 560px) {
+.svc-grid {
+grid-template-columns: 1fr;
+}
+.svc-img {
+height: 210px;
+}
+}
+
+/* Képkivágások a kártyákon */
+.svc-card:nth-child(2) .svc-img img { object-position: 50% 40%; }
+.svc-card:nth-child(4) .svc-img img { object-position: 50% 58%; }
+.svc-card:nth-child(5) .svc-img img { object-position: 50% 55%; }
+.svc-card:nth-child(6) .svc-img img { object-position: 50% 55%; }

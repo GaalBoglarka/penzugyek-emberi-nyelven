@@ -8,6 +8,14 @@ A legfrissebb bejegyzés van legfelül. Új fejlesztés után ide kerül egy bej
 
 ---
 
+## 2026-11-18 — Új megjelenés: portrés nyitóblokk, fotós szolgáltatáskártyák
+A főoldal megújult: két oszlopos nyitóblokk (név, titulus, portré, két gomb), felső sáv
+elérhetőségekkel, kiemelt "Időpontot foglalok" gomb a menüben, három bizalmi pont a nyitóblokk alatt,
+hat fotós szolgáltatáskártya (Otthonteremtés, Hitelek és számlák, Biztosítás, Nyugdíj, Céges pénzügyek,
+Társasház-biztosítás) lenyíló részletekkel, nagyobb csapatképek. A "független" és "teljes piac"
+megfogalmazások "több partner, egy tanácsadó" üzenetre cserélve (főoldal, kvíz, karrier, lábléc, meta leírások).
+A színek, a betűtípus és az űrlapok változatlanok.
+
 ## 2026-07-19 — Tartalompillér-váz a social media oldalakhoz
 Új fájl: `TARTALOMPILLEREK_2026.md`. Friss piackutatás (2026. május–július) alapján
 négy tartalompillér készült a Facebook/Instagram oldalhoz (banki ügyek, biztosítás,
